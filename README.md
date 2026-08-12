@@ -11,7 +11,7 @@ Rather than treating a jewelry website as a traditional product catalogue, Solar
 ## Preview
 
 <p align="center">
-  <img src="assets/preview.png" width="100%" alt="Solara Royale Preview">
+  <img src="https://github.com/Nireeksha135/Solara_Royale/blob/main/solararoyale-site/assets/hero-bg.jpg" width="100%" alt="Solara Royale Preview">
 </p>
 
 ---
