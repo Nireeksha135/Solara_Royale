@@ -1,200 +1,68 @@
 # Solara Royale
 
-### A luxury jewelry experience built around storytelling, product presentation, and immersive interaction.
+### A cinematic luxury jewelry experience focused on storytelling, product presentation, and interaction design.
 
-Solara Royale is a premium e-commerce concept designed to explore how **luxury branding, 3D product presentation, motion, and interaction design** can come together to create a more immersive digital shopping experience.
+Solara Royale is a premium jewelry e-commerce concept designed to explore how **visual storytelling, motion, and product presentation** can transform a traditional shopping experience into a digital luxury showroom.
 
-Rather than treating a jewelry website as a traditional product catalogue, Solara Royale approaches the experience as a **digital luxury showroom** — where the product is gradually revealed through movement, lighting, space, and storytelling.
+The experience uses scroll-driven animation to take the user through the journey of a diamond ring — from the complete product, through its exploded components, and back together again.
+
 
 ---
 
+## Tech Stack
 
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JAVASCRIPT-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Canvas](https://img.shields.io/badge/CANVAS_2D-111111?style=for-the-badge)
+![Google Fonts](https://img.shields.io/badge/GOOGLE_FONTS-4285F4?style=for-the-badge&logo=googlefonts&logoColor=white)
+![Responsive Design](https://img.shields.io/badge/RESPONSIVE_DESIGN-111111?style=for-the-badge)
+![UI/UX](https://img.shields.io/badge/UI%2FUX-FF5CA8?style=for-the-badge)
 
-## Concept
+---
 
-Luxury products are often sold through more than specifications.
+## Features
 
-The experience is built around:
-
-- Anticipation
-- Visual storytelling
-- Product craftsmanship
-- Material and light
-- Minimalism
-- Interaction
-- Emotional perception
-
-Solara Royale explores how these principles can translate into a digital interface.
-
-The goal was to make the website feel less like an online store and more like **entering a luxury jewelry showroom**.
+- Cinematic luxury jewelry landing page
+- Scroll-driven product storytelling
+- Diamond ring product reveal
+- Exploded-view product animation
+- Frame-by-frame canvas rendering
+- Smooth section transitions
+- Responsive layout
+- Premium typography and visual system
+- Interactive navigation
+- Luxury-focused UI/UX
 
 ---
 
 ## Experience
 
-The website is structured as a visual journey rather than a collection of static pages.
-
-### 01 — Introduction
-
-The opening experience establishes the brand identity through a minimal, cinematic composition.
-
-The user is introduced to the product before being presented with conventional e-commerce information.
-
-### 02 — Product Reveal
-
-The jewelry gradually becomes the focus of the experience.
-
-Motion and composition are used to create anticipation around the product.
-
-### 03 — Craftsmanship
-
-The experience shifts from simply showing the product to communicating how it is constructed.
-
-The ring can be explored through a more technical and detailed presentation.
-
-### 04 — Product Story
-
-Material, form, light, and craftsmanship become part of the storytelling.
-
-### 05 — Commerce
-
-Only after the product story has been established does the experience move toward conventional product information and purchasing decisions.
-
----
-
-## Design Direction
-
-The visual language was intentionally built around the characteristics commonly associated with luxury jewelry.
-
-| Element | Direction |
-|---|---|
-| Brand | Solara Royale |
-| Industry | Luxury Jewelry |
-| Visual Style | Premium / Minimal / Cinematic |
-| Composition | Spacious & Editorial |
-| Typography | Elegant & Minimal |
-| Product Focus | High |
-| Motion | Smooth & Deliberate |
-| Interaction | Immersive |
-| Color Direction | Neutral / Metallic |
-| Experience | Digital Luxury Showroom |
-
----
-
-## Interaction Design
-
-The project explores how motion can communicate information instead of existing purely as decoration.
-
-### Scroll as a Timeline
-
-The core interaction treats scroll progress as a **timeline**.
-
-Instead of thinking of scrolling as simply moving down a page:
+The website is designed around a continuous scroll narrative:
 
 ```text
-Scroll Position
+INTRODUCTION
       ↓
-Timeline Progress
+PRODUCT REVEAL
       ↓
-┌─────────────────────────────┐
-│ Camera                      │
-│ Product Position             │
-│ Lighting                     │
-│ Scale                        │
-│ Rotation                     │
-│ UI Elements                  │
-│ Content                      │
-└─────────────────────────────┘
+WHOLE RING
+      ↓
+EXPLODED VIEW
+      ↓
+CRAFTSMANSHIP
+      ↓
+WHOLE AGAIN
+      ↓
+PRODUCT EXPERIENCE
 ```
 
-Each part of the experience responds to the same progress value.
-
-This creates a more controlled relationship between user input and visual storytelling.
+Scroll position acts as a **timeline**, controlling the visual progression of the product rather than simply moving between static sections.
 
 ---
 
-## Product Presentation
+## Design Focus
 
-A major focus of Solara Royale is the presentation of the ring itself.
-
-The interface explores:
-
-- Hero product compositions
-- Close-up product views
-- Controlled camera movement
-- Lighting transitions
-- Product rotation
-- Scale transitions
-- Technical/exploded product views
-- Material-focused presentation
-
-The objective is to make the product feel **physical and tangible**, despite being experienced through a screen.
-
----
-
-## 3D & Motion
-
-The experience uses 3D-oriented visual presentation and scroll-driven motion to create a more cinematic interaction.
-
-Motion is intentionally used to support:
-
-**Product discovery → Understanding → Appreciation → Purchase**
-
-rather than adding animation without purpose.
-
----
-
-## UX Principles
-
-### Visual Hierarchy
-
-The product remains the primary visual focus.
-
-Secondary information is introduced progressively so the interface doesn't compete with the jewelry.
-
-### Progressive Disclosure
-
-Information is revealed as the user moves through the experience instead of presenting everything at once.
-
-### Reduced Cognitive Load
-
-The interface avoids excessive navigation and competing UI elements.
-
-### Emotional Design
-
-The first interaction is designed to create curiosity and anticipation before introducing detailed product information.
-
-### Storytelling Before Selling
-
-The experience establishes value and craftsmanship before asking the user to make a purchasing decision.
-
----
-
-## Key Design Decisions
-
-### 1. Product First
-
-The ring is treated as the hero of the experience rather than one card among many products.
-
-### 2. Scroll as Interaction
-
-Scroll is used as a storytelling mechanism rather than conventional page navigation.
-
-### 3. Minimal Interface
-
-Navigation and UI elements remain visually restrained so they don't compete with the product.
-
-### 4. Cinematic Transitions
-
-Transitions are designed to feel continuous rather than like separate sections appearing on a webpage.
-
-### 5. Luxury Through Restraint
-
-The interface intentionally avoids excessive decoration.
-
-The goal is to communicate luxury through:
-
-**space · typography · light · movement · material**
+**Luxury Branding · Product Storytelling · Motion Design · Interaction Design · Visual Hierarchy · Responsive UI**
 
 ---
 
@@ -203,113 +71,30 @@ The goal is to communicate luxury through:
 ```text
 Solara_Royale/
 │
-├── assets/
-│   ├── images/
-│   ├── models/
-│   └── ...
-│
-├── ...
+├── solararoyale-site/
+│   ├── assets/
+│   └── index.html
 │
 └── README.md
 ```
 
 ---
 
-## Design Goals
+## Goal
 
-The project was created to explore several questions:
+The goal of Solara Royale was to explore how a digital product can communicate the **craftsmanship, detail, and emotional value** of a physical luxury object.
 
-> How can an e-commerce website create the feeling of a physical luxury showroom?
-
-> How can scroll become part of the product story instead of just navigation?
-
-> How can motion communicate craftsmanship and material?
-
-> How can a digital interface make a physical product feel tangible?
-
----
-
-## What This Project Demonstrates
-
-### UI / UX
-
-- Luxury product experience design
-- Visual hierarchy
-- Interaction design
-- Motion design
-- Digital storytelling
-- Progressive disclosure
-- Product-focused interfaces
-- Emotional design
-
-### Frontend
-
-- Responsive interface development
-- Interactive UI
-- Scroll-driven experiences
-- Animation systems
-- Component-based interface thinking
-- Visual performance considerations
-
-### Creative Development
-
-- 3D product presentation
-- Cinematic web experiences
-- Product visualization
-- Experimental interaction patterns
-- Brand-driven digital experiences
-
----
-
-## Why I Built It
-
-Most e-commerce interfaces are optimized around:
+Instead of:
 
 ```text
-Product → Price → Add to Cart
+Product → Price → Buy
 ```
 
-Solara Royale explores a different approach:
+the experience focuses on:
 
 ```text
-Atmosphere
-    ↓
-Curiosity
-    ↓
-Product
-    ↓
-Craftsmanship
-    ↓
-Story
-    ↓
-Desire
-    ↓
-Purchase
+Atmosphere → Curiosity → Product → Craftsmanship → Desire
 ```
-
-The project is an experiment in **how digital interaction can influence the perception of a physical luxury product**.
-
----
-
-## Future Improvements
-
-- [ ] Product customization
-- [ ] Multiple jewelry collections
-- [ ] Interactive material exploration
-- [ ] Advanced 3D product viewer
-- [ ] AR try-on experience
-- [ ] Product comparison
-- [ ] Wishlist functionality
-- [ ] Shopping cart and checkout flow
-- [ ] Accessibility improvements
-- [ ] Performance optimization for 3D assets
-- [ ] Mobile-specific interaction system
-
----
-
-## Project Focus
-
-**Luxury E-Commerce · UI/UX Design · Interaction Design · Motion Design · 3D Web Experience · Product Storytelling · Frontend Development**
 
 ---
 
@@ -318,8 +103,6 @@ The project is an experiment in **how digital interaction can influence the perc
 ### Nireeksha K R
 
 Computer Science & Design Engineering student focused on **UX Design, AI, and Full-Stack Development**.
-
-I enjoy exploring the intersection of design and engineering to create digital products that are not only functional, but also thoughtful and engaging.
 
 ---
 
