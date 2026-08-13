@@ -116,9 +116,13 @@
       rgba(8,11,20,0.15) 55%, transparent 72%),
       linear-gradient(180deg, rgba(8,11,20,0.35) 0%, transparent 20%, transparent 75%, rgba(8,11,20,0.6) 100%);
   }
+  .hero-content{
+    position:absolute; z-index:3; top:86px; left:0; right:0; bottom:190px;
+    display:flex; align-items:center; pointer-events:none;
+  }
+  .hero-content > *{pointer-events:auto;}
   .hero-text{
-    position:absolute; z-index:3; top:50%; left:64px; transform:translateY(-50%);
-    max-width:400px;
+    max-width:400px; margin-left:64px;
   }
   .hero-text h1{font-size:clamp(40px,4.6vw,64px); margin:14px 0 0;}
   .hero-text h1 em{font-style:italic; color:var(--rose-bright); font-weight:400;}
@@ -321,7 +325,8 @@
   @media (max-width:860px){
     nav{padding:18px 20px;}
     .navlinks{display:none;}
-    .hero-text{left:24px; right:24px; max-width:none;}
+    .hero-content{top:70px; bottom:230px;}
+    .hero-text{left:0; right:0; margin-left:24px; margin-right:24px; max-width:none;}
     .hero-scrim{
       background:linear-gradient(180deg, rgba(8,11,20,0.3) 0%, rgba(8,11,20,0.55) 40%, rgba(8,11,20,0.92) 100%);
     }
@@ -376,6 +381,7 @@
   <div class="hero-bg-img" id="heroBgImg" role="img" aria-label="SolaraRoyale signature oval ring on dark stone with light flares"></div>
   <div class="hero-scrim"></div>
 
+  <div class="hero-content">
   <div class="hero-text">
     <span class="eyebrow">Fine Jewellery — Est. Solitaire</span>
     <h1>Cut to<br><em>perfection.</em></h1>
@@ -385,6 +391,7 @@
       <a href="#act1" class="cta-btn">Explore the Anatomy</a>
       <a href="#footer" class="btn-ghost">Book a Private Viewing →</a>
     </div>
+  </div>
   </div>
 
   <div class="hero-badge-circle">
