@@ -48,6 +48,8 @@
     position:fixed; inset:0; pointer-events:none; z-index:5;
     background:radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%);
   }
+
+  /* NAV (shared across the site) */
   nav{
     position:fixed; top:0; left:0; right:0; z-index:100;
     display:flex; align-items:center; justify-content:space-between;
@@ -91,22 +93,129 @@
     display:inline-block;
   }
   .cta-btn:hover{background:var(--rose); color:var(--navy-deep);}
-  .cta-btn:focus-visible, .btn-ghost:focus-visible, .navlinks a:focus-visible{
+  .cta-btn:focus-visible, .navlinks a:focus-visible, .text-link:focus-visible, .filter-pill:focus-visible{
     outline:1px solid var(--rose-bright); outline-offset:3px;
   }
-  .btn-ghost{
-    color:var(--ivory); text-decoration:none; font-size:13px; padding:12px 0;
-    border-bottom:1px solid var(--hair); letter-spacing:0.02em;
-    display:inline-flex; align-items:center; gap:8px; background:none; cursor:pointer;
-    font-family:'Manrope',sans-serif;
-  }
-  .page-header{
-    padding:180px 48px 80px; text-align:center; position:relative;
+
+  /* HERO / PAGE HEADER — image-backed, crumb breadcrumb (borrowed from craftsmanship.html) */
+  .page-hero{
+    position:relative; padding:168px 48px 90px; overflow:hidden;
     border-bottom:1px solid var(--hair);
     background:linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
   }
-  .page-header h1{font-size:clamp(38px,5vw,64px); margin:16px 0 18px;}
-  .page-header p{color:var(--muted); font-size:15px; max-width:520px; margin:0 auto; line-height:1.7;}
+  .page-hero-bg{
+    position:absolute; inset:0; z-index:0;
+    background-image:url('assets/hero-bg.jpg');
+    background-size:cover; background-position:center 30%;
+    opacity:0.28;
+  }
+  .page-hero-scrim{
+    position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, var(--navy-deep) 0%, rgba(8,11,20,0.75) 45%, var(--navy-deep) 100%);
+  }
+  .page-hero-content{position:relative; z-index:2; max-width:640px;}
+  .crumbs{font-size:11px; color:var(--muted); margin-bottom:22px; letter-spacing:0.03em;}
+  .crumbs b{color:var(--rose-bright); padding:0 10px; font-weight:400;}
+  .page-hero h1{font-size:clamp(38px,5vw,60px); margin:14px 0 16px;}
+  .page-hero p{color:var(--muted); font-size:15px; max-width:480px; line-height:1.7;}
+
+  /* FILTER / SEARCH BAR */
+  .journal-controls{
+    max-width:1240px; margin:0 auto; padding:44px 48px 0;
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:20px;
+  }
+  .filter-pills{display:flex; gap:10px; flex-wrap:wrap;}
+  .filter-pill{
+    background:none; border:1px solid var(--hair); color:var(--muted);
+    font-family:'Manrope',sans-serif; font-size:12px; letter-spacing:0.03em;
+    padding:9px 18px; border-radius:20px; cursor:pointer; transition:all .25s ease;
+  }
+  .filter-pill:hover{color:var(--ivory); border-color:var(--rose);}
+  .filter-pill.active{color:var(--navy-deep); background:var(--rose-bright); border-color:var(--rose-bright);}
+  .journal-search{
+    position:relative; min-width:220px;
+  }
+  .journal-search input{
+    width:100%; background:var(--navy-soft); border:1px solid var(--hair); color:var(--ivory);
+    padding:11px 16px; font-family:'Manrope',sans-serif; font-size:13px; border-radius:2px;
+    outline:none; transition:border-color .25s ease;
+  }
+  .journal-search input::placeholder{color:var(--muted);}
+  .journal-search input:focus{border-color:var(--rose);}
+
+  /* ARTICLE GRID */
+  .journal-grid{
+    max-width:1240px; margin:0 auto; padding:44px 48px 40px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  }
+  .journal-card{
+    border:1px solid var(--hair); border-radius:4px; overflow:hidden;
+    display:flex; flex-direction:column; text-decoration:none; color:inherit;
+    background:var(--navy-soft);
+    transition:transform .35s ease, border-color .35s ease;
+  }
+  .journal-card:hover{transform:translateY(-4px); border-color:var(--rose);}
+  .journal-card img{width:100%; aspect-ratio:16/10; object-fit:cover; display:block; filter:brightness(0.88);}
+  .journal-card .jbody{padding:24px;}
+  .journal-card .jmeta{
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--rose-bright);
+    margin-bottom:12px; display:flex; gap:10px; align-items:center;
+  }
+  .journal-card .jmeta .dot{color:var(--muted); font-weight:400; text-transform:none; letter-spacing:0;}
+  .journal-card h3{font-size:18px; margin-bottom:10px; line-height:1.32;}
+  .journal-card p{color:var(--muted); font-size:13px; line-height:1.65; margin-bottom:18px;}
+  .journal-card.featured{grid-column:span 2; grid-row:span 2;}
+  .journal-card.featured img{aspect-ratio:16/11;}
+  .journal-card.featured h3{font-size:27px; margin-bottom:14px;}
+  .journal-card.featured p{font-size:14px;}
+  .text-link{
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none;
+    color:var(--rose-bright); display:inline-flex; align-items:center; gap:8px;
+    padding-bottom:2px; border-bottom:1px solid var(--rose); width:fit-content;
+  }
+  .journal-card[hidden]{display:none;}
+  .no-results{
+    grid-column:1/-1; text-align:center; padding:60px 20px; color:var(--muted); font-size:14px;
+    display:none;
+  }
+  .no-results.visible{display:block;}
+  .placeholder-note{
+    max-width:1240px; margin:0 auto; padding:0 48px 50px; text-align:center;
+    color:var(--muted); font-size:12.5px; font-style:italic;
+  }
+
+  /* NEWSLETTER BAND */
+  .newsletter{
+    position:relative; overflow:hidden; margin-top:20px;
+    padding:80px 48px; display:flex; align-items:center; justify-content:space-between;
+    gap:40px; flex-wrap:wrap;
+    border-top:1px solid var(--hair); border-bottom:1px solid var(--hair);
+  }
+  .newsletter-bg{
+    position:absolute; inset:0; z-index:0;
+    background-image:url('assets/frames/frame_090.jpg');
+    background-size:cover; background-position:center;
+    opacity:0.16;
+  }
+  .newsletter-scrim{position:absolute; inset:0; z-index:1; background:var(--navy-deep); opacity:0.55;}
+  .newsletter-copy{position:relative; z-index:2; max-width:420px;}
+  .newsletter-copy h3{font-size:clamp(24px,2.8vw,34px); margin-top:12px;}
+  .newsletter-form{
+    position:relative; z-index:2; display:flex; gap:12px; flex-wrap:wrap; max-width:420px; flex:1;
+  }
+  .newsletter-form input{
+    flex:1; min-width:220px; background:var(--navy-soft); border:1px solid var(--hair); color:var(--ivory);
+    padding:14px 16px; font-family:'Manrope',sans-serif; font-size:14px; border-radius:2px; outline:none;
+    transition:border-color .25s ease;
+  }
+  .newsletter-form input:focus{border-color:var(--rose);}
+  .newsletter-success{
+    display:none; color:var(--rose-bright); font-size:13px; align-items:center; z-index:2; position:relative;
+  }
+  .newsletter-success.visible{display:flex;}
+
+  /* FOOTER (shared across the site) */
   footer{
     border-top:1px solid var(--hair);
     padding:60px 48px 40px;
@@ -126,39 +235,29 @@
     display:flex; justify-content:space-between; border-top:1px solid var(--hair);
     flex-wrap:wrap; gap:8px;
   }
+
+  /* Scroll-reveal (borrowed pattern from craftsmanship.html) */
+  .js .reveal{opacity:0; transform:translate3d(0,22px,0); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);}
+  .js .reveal.is-visible{opacity:1; transform:none;}
+  .js .journal-card{transition-delay:calc(var(--i,0) * 70ms);}
+
+  @media (max-width:900px){
+    .journal-grid{grid-template-columns:1fr 1fr;}
+    .journal-card.featured{grid-column:span 2;}
+  }
   @media (max-width:860px){
     nav{padding:18px 20px;}
     .navlinks{display:none;}
-    .page-header{padding:140px 24px 60px;}
+    .page-hero{padding:140px 24px 60px;}
+    .journal-controls{padding:36px 24px 0; flex-direction:column; align-items:stretch;}
+    .journal-search{min-width:0;}
+    .journal-grid{grid-template-columns:1fr; padding:36px 24px 30px; gap:20px;}
+    .journal-card.featured{grid-column:span 1;}
+    .placeholder-note{padding:0 24px 30px;}
+    .newsletter{padding:60px 24px; flex-direction:column; align-items:flex-start;}
+    .newsletter-form{width:100%;}
     footer{padding:48px 24px;}
     .footer-bottom{padding:20px 24px; flex-direction:column;}
-  }
-
-  .journal-grid{
-    max-width:1100px; margin:0 auto; padding:90px 48px 120px;
-    display:grid; grid-template-columns:1.1fr 1fr 1fr; gap:32px;
-  }
-  .journal-card{
-    border:1px solid var(--hair); border-radius:4px; overflow:hidden;
-    display:flex; flex-direction:column; text-decoration:none; color:inherit;
-    transition:transform .35s ease, border-color .35s ease;
-  }
-  .journal-card:hover{transform:translateY(-4px); border-color:var(--rose);}
-  .journal-card img{width:100%; aspect-ratio:16/10; object-fit:cover; display:block; filter:brightness(0.9);}
-  .journal-card .jbody{padding:22px;}
-  .journal-card .jmeta{font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--rose-bright); margin-bottom:10px;}
-  .journal-card h3{font-size:18px; margin-bottom:10px; line-height:1.3;}
-  .journal-card p{color:var(--muted); font-size:13px; line-height:1.6;}
-  .journal-card.featured{grid-row:span 2;}
-  .journal-card.featured h3{font-size:24px;}
-  .placeholder-note{
-    max-width:1100px; margin:0 auto; padding:0 48px 50px; text-align:center;
-    color:var(--muted); font-size:12.5px; font-style:italic;
-  }
-  @media (max-width:900px){
-    .journal-grid{grid-template-columns:1fr; padding:60px 24px 70px; gap:24px;}
-    .journal-card.featured{grid-row:auto;}
-    .placeholder-note{padding:0 24px 30px;}
   }
 </style>
 </head>
@@ -177,39 +276,119 @@
   <a href="book-a-private-viewing.html" class="cta-btn">Book a Private Viewing</a>
 </nav>
 
-<section class="page-header">
-  <span class="eyebrow">The Journal</span>
-  <h1>Notes from the atelier.</h1>
-  <p>On cut, craft, and the small decisions behind every SolaraRoyale piece.</p>
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-scrim"></div>
+  <div class="page-hero-content">
+    <div class="crumbs">Home <b>&rsaquo;</b> Journal</div>
+    <span class="eyebrow">The Journal</span>
+    <h1>Notes from the atelier.</h1>
+    <p>On cut, craft, and the small decisions behind every SolaraRoyale piece — stories that inspire, guides that inform, and a look inside how each piece comes together.</p>
+  </div>
 </section>
 
-<div class="journal-grid">
-  <a class="journal-card featured" href="#">
-    <img src="assets/hero-bg.jpg" alt="The language of cut">
-    <div class="jbody">
-      <div class="jmeta">Craft — 6 min read</div>
-      <h3>The Language of Cut: Why an Oval Reads Differently Than a Round</h3>
-      <p>Cut shapes more than sparkle — it shapes how a stone feels on the hand, and how it ages with you over decades.</p>
-    </div>
-  </a>
-  <a class="journal-card" href="#">
-    <img src="assets/frames/frame_015.jpg" alt="Choosing a diamond that lasts">
-    <div class="jbody">
-      <div class="jmeta">Guide — 4 min read</div>
-      <h3>Choosing a Diamond That Lasts Generations, Not Seasons</h3>
-      <p>The four Cs matter less than the one most people skip: the setting.</p>
-    </div>
-  </a>
-  <a class="journal-card" href="#">
-    <img src="assets/frames/frame_070.jpg" alt="Inside the atelier">
-    <div class="jbody">
-      <div class="jmeta">Atelier — 5 min read</div>
-      <h3>Inside the Atelier: A Ring's First 72 Hours</h3>
-      <p>From CAD file to first polish — what actually happens before a stone is ever set.</p>
-    </div>
-  </a>
+<div class="journal-controls">
+  <div class="filter-pills" id="filterPills">
+    <button class="filter-pill active" data-filter="all">All Stories</button>
+    <button class="filter-pill" data-filter="craftsmanship">Craftsmanship</button>
+    <button class="filter-pill" data-filter="diamond-guide">Diamond Guide</button>
+    <button class="filter-pill" data-filter="design">Design Inspiration</button>
+    <button class="filter-pill" data-filter="behind-the-scenes">Behind the Scenes</button>
+    <button class="filter-pill" data-filter="timeless-moments">Timeless Moments</button>
+  </div>
+  <div class="journal-search">
+    <input type="text" id="journalSearch" placeholder="Search articles...">
+  </div>
 </div>
-<p class="placeholder-note">Journal entries above are placeholder editorial content — replace with real articles before launch.</p>
+
+<div class="journal-grid" id="journalGrid">
+  <a class="journal-card featured" href="#" data-category="craftsmanship" data-title="the art of perfection">
+    <img src="assets/hero-bg.jpg" alt="The Art of Perfection">
+    <div class="jbody">
+      <div class="jmeta"><span>Craftsmanship</span><span class="dot">·</span><span>May 12, 2026</span></div>
+      <h3>The Art of Perfection</h3>
+      <p>Discover the meticulous craftsmanship and time-honoured techniques behind every SolaraRoyale creation — from first sketch to final polish.</p>
+      <span class="text-link">Read More &rarr;</span>
+    </div>
+  </a>
+
+  <a class="journal-card" href="#" data-category="diamond-guide" data-title="understanding diamond quality">
+    <img src="assets/frames/frame_015.jpg" alt="Understanding Diamond Quality">
+    <div class="jbody">
+      <div class="jmeta"><span>Diamond Guide</span><span class="dot">·</span><span>Apr 28, 2026</span></div>
+      <h3>Understanding Diamond Quality</h3>
+      <p>A guide to the 4Cs and what truly defines an exceptional diamond.</p>
+      <span class="text-link">Read More &rarr;</span>
+    </div>
+  </a>
+
+  <a class="journal-card" href="#" data-category="design" data-title="designs that tell your story">
+    <img src="assets/frames/frame_050.jpg" alt="Designs That Tell Your Story">
+    <div class="jbody">
+      <div class="jmeta"><span>Design Inspiration</span><span class="dot">·</span><span>Apr 15, 2026</span></div>
+      <h3>Designs That Tell Your Story</h3>
+      <p>How our designs are shaped by emotions, moments, and you.</p>
+      <span class="text-link">Read More &rarr;</span>
+    </div>
+  </a>
+
+  <a class="journal-card" href="#" data-category="behind-the-scenes" data-title="inside our creative process">
+    <img src="assets/frames/frame_070.jpg" alt="Inside Our Creative Process">
+    <div class="jbody">
+      <div class="jmeta"><span>Behind the Scenes</span><span class="dot">·</span><span>Apr 2, 2026</span></div>
+      <h3>Inside Our Creative Process</h3>
+      <p>From the first sketch to the final masterpiece — a look inside the atelier.</p>
+      <span class="text-link">Read More &rarr;</span>
+    </div>
+  </a>
+
+  <a class="journal-card" href="#" data-category="craftsmanship" data-title="handcrafted heartfelt">
+    <img src="assets/images/artisan-setting-ring.jpg" alt="Handcrafted. Heartfelt.">
+    <div class="jbody">
+      <div class="jmeta"><span>Craftsmanship</span><span class="dot">·</span><span>Mar 18, 2026</span></div>
+      <h3>Handcrafted. Heartfelt.</h3>
+      <p>The passion and precision that goes into every handcrafted piece.</p>
+      <span class="text-link">Read More &rarr;</span>
+    </div>
+  </a>
+
+  <a class="journal-card" href="#" data-category="timeless-moments" data-title="celebrating timeless connections">
+    <img src="assets/images/artisan-inspecting-ring.jpg" alt="Celebrating Timeless Connections">
+    <div class="jbody">
+      <div class="jmeta"><span>Timeless Moments</span><span class="dot">·</span><span>Mar 5, 2026</span></div>
+      <h3>Celebrating Timeless Connections</h3>
+      <p>Stories of love, milestones, and cherished memories with SolaraRoyale.</p>
+      <span class="text-link">Read More &rarr;</span>
+    </div>
+  </a>
+
+  <a class="journal-card" href="#" data-category="behind-the-scenes" data-title="the solararoyale experience">
+    <img src="assets/frames/frame_001.jpg" alt="The SolaraRoyale Experience">
+    <div class="jbody">
+      <div class="jmeta"><span>Behind the Scenes</span><span class="dot">·</span><span>Feb 20, 2026</span></div>
+      <h3>The SolaraRoyale Experience</h3>
+      <p>More than jewellery — it's an experience, from consultation to keepsake.</p>
+      <span class="text-link">Read More &rarr;</span>
+    </div>
+  </a>
+
+  <p class="no-results" id="noResults">No articles match your search or filter — try clearing one of them.</p>
+</div>
+<p class="placeholder-note">Journal entries above are placeholder editorial content and imagery (reused from existing site assets) — replace with real articles and photography before launch.</p>
+
+<section class="newsletter">
+  <div class="newsletter-bg"></div>
+  <div class="newsletter-scrim"></div>
+  <div class="newsletter-copy">
+    <span class="eyebrow">Stay Inspired</span>
+    <h3>Stories, style and sparkle — delivered to you.</h3>
+  </div>
+  <form class="newsletter-form" id="newsletterForm">
+    <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+    <button type="submit" class="cta-btn">Subscribe</button>
+  </form>
+  <p class="newsletter-success" id="newsletterSuccess">You're subscribed — welcome to the journal.</p>
+</section>
 
 <footer id="footer">
   <div class="footer-col">
@@ -239,7 +418,7 @@
   </div>
 </footer>
 <div class="footer-bottom">
-  <span>© 2026 SolaraRoyale. All rights reserved.</span>
+  <span>&copy; 2026 SolaraRoyale. All rights reserved.</span>
   <span>Designed for those who look closer.</span>
 </div>
 
@@ -257,6 +436,57 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', rafThrottle(() => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }), { passive: true });
+
+// ---- Category filter + search (combined, client-side only) ----
+const cards = [...document.querySelectorAll('.journal-card')];
+const pills = [...document.querySelectorAll('.filter-pill')];
+const searchInput = document.getElementById('journalSearch');
+const noResults = document.getElementById('noResults');
+let activeFilter = 'all';
+
+function applyFilters(){
+  const query = searchInput.value.trim().toLowerCase();
+  let visibleCount = 0;
+  cards.forEach(card => {
+    const matchesCategory = activeFilter === 'all' || card.dataset.category === activeFilter;
+    const matchesSearch = !query || card.dataset.title.includes(query);
+    const show = matchesCategory && matchesSearch;
+    card.hidden = !show;
+    if (show) visibleCount++;
+  });
+  noResults.classList.toggle('visible', visibleCount === 0);
+}
+
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    activeFilter = pill.dataset.filter;
+    applyFilters();
+  });
+});
+searchInput.addEventListener('input', applyFilters);
+
+// ---- Newsletter form (front-end only — see book-a-private-viewing.html
+// for notes on wiring a real backend via Formspree/Getform) ----
+document.getElementById('newsletterForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  this.style.display = 'none';
+  document.getElementById('newsletterSuccess').classList.add('visible');
+});
+
+// ---- Scroll-reveal for cards (pattern borrowed from craftsmanship.html) ----
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.documentElement.classList.add('js');
+  cards.forEach((card, i) => {
+    card.classList.add('reveal');
+    card.style.setProperty('--i', i % 6);
+  });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.target.classList.toggle('is-visible', entry.isIntersecting));
+  }, { threshold: 0.14, rootMargin: '0px 0px -40px' });
+  cards.forEach(card => observer.observe(card));
+}
 </script>
 </body>
 </html>
